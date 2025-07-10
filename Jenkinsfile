@@ -27,6 +27,14 @@ pipeline {
     post {
         success {
             echo 'Pipeline completed successfully.'
+            script {
+                emailext (
+                    subject: '✅ Jenkins Build Successful: ${JOB_NAME} #${BUILD_NUMBER}',
+                    body: 'The build was successful.\n\nPlease find the generated files attached.',
+                    to: 'shubhamakabambi@gmail.com',
+                    attachmentsPattern: 'output*.csv, *.pkl'
+                )
+            }
         }
         failure {
             echo 'Pipeline failed.'
