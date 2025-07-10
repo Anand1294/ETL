@@ -5,7 +5,8 @@ pipeline {
         stage('Python1') {
             steps {
                 echo 'Running 1.py...'
-                sh "python -u 1.py"
+                bat "python -u 1.py"
+                echo 'Python 1 successful'
             }
         }
 
