@@ -29,7 +29,7 @@ pipeline {
             echo 'Pipeline completed successfully.'
             script {
                 emailext (
-                    subject: '✅ Jenkins Build Successful: ${JOB_NAME} #${BUILD_NUMBER}',
+                    subject: 'Jenkins Build Successful: ${JOB_NAME} #${BUILD_NUMBER}',
                     body: 'The build was successful.\n\nPlease find the generated files attached.',
                     to: 'devopsdev.0111@gmail.com',
                     attachmentsPattern: 'output*.csv, *.pkl'
