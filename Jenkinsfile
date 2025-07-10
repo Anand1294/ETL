@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Python1') {
+        stage('Script 1') {
             steps {
                 echo 'Running 1.py...'
                 bat "python -u 1.py"
@@ -10,7 +10,7 @@ pipeline {
             }
         }
 
-        stage('Python2') {
+        stage('Script 2') {
             steps {
                 echo 'Running 2.py...'
                 bat "python -u sport.py"
@@ -38,6 +38,9 @@ pipeline {
         }
         failure {
             echo 'Pipeline failed.'
+            subject: 'Jenkins Build Failed: ${JOB_NAME} #${BUILD_NUMBER}',
+            body: 'The build failed.\n',
+            to: 'devopsdev.0111@gmail.com'
         }
     }
 }
