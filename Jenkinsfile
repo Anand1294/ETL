@@ -38,9 +38,13 @@ pipeline {
         }
         failure {
             echo 'Pipeline failed.'
-            subject: 'Jenkins Build Failed: ${JOB_NAME} #${BUILD_NUMBER}',
-            body: 'The build failed.\n',
-            to: 'devopsdev.0111@gmail.com'
+            script {
+                emailext (
+                    subject: 'Jenkins Build Failed: ${JOB_NAME} #${BUILD_NUMBER}',
+                    body: 'The build failed.\n',
+                    to: 'devopsdev.0111@gmail.com'
+                    )
+            }
         }
     }
 }
