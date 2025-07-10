@@ -19,7 +19,7 @@ pipeline {
 
         stage('Archive Artifacts') {
             steps {
-                archiveArtifacts artifacts: '*.csv, *.pkl', fingerprint: true
+                archiveArtifacts artifacts: 'output*.csv, *.pkl', fingerprint: true
             }
         }
     }
