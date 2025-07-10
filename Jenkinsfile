@@ -13,7 +13,7 @@ pipeline {
         stage('Python2') {
             steps {
                 echo 'Running 2.py...'
-                bat "python -u sports.py"
+                bat "python -u sport.py"
             }
         }
     }
