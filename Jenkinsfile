@@ -16,6 +16,12 @@ pipeline {
                 bat "python -u sport.py"
             }
         }
+
+        stage('Archive Artifacts') {
+            steps {
+                archiveArtifacts artifacts: '*.csv, *.pkl', fingerprint: true
+            }
+        }
     }
 
     post {
