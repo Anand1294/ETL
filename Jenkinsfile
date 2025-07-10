@@ -31,7 +31,7 @@ pipeline {
                 emailext (
                     subject: '✅ Jenkins Build Successful: ${JOB_NAME} #${BUILD_NUMBER}',
                     body: 'The build was successful.\n\nPlease find the generated files attached.',
-                    to: 'shubhamakabambi@gmail.com',
+                    to: 'devopsdev.0111@gmail.com',
                     attachmentsPattern: 'output*.csv, *.pkl'
                 )
             }
